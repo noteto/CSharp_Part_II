@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//Write a method that reverses the digits of given decimal number. Example: 256 -> 652.
+//Write a method that reverses the digits of given decimal number. Example: 256 -> 652. 25,6 -. 6,52
 
 namespace task16_methods06
 {
-    class ReverseIntegerNumber
+    class ReverseIntNumber
     {
         static int ReverseNumber(int number)
         {
@@ -18,12 +18,21 @@ namespace task16_methods06
             return (revNumber);
         }
 
+        static string ReverseNumberDecimal(decimal numberD)
+        {
+            string numD = numberD.ToString();
+            string reverseD = new string(numD.ToCharArray().Reverse().ToArray());
+            return (reverseD);
+        }
+
         static void Main()
         {
             int number = int.Parse(Console.ReadLine());
             int newNumber = ReverseNumber(number);
-            
             Console.WriteLine(newNumber);
+
+            decimal numberD = decimal.Parse(Console.ReadLine());
+            Console.WriteLine(ReverseNumberDecimal(numberD));
         }
     }
 }
