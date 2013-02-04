@@ -1,32 +1,45 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 //Hexadecimal To Binary
 
-class HexToBinary
+class HexToBin
 {
     static void Main()
     {
-        string hexadec = Console.ReadLine();
-        ConvertHexToBinary(hexadec);
+        string hexInput = Console.ReadLine();
+        string hex = hexInput.ToUpper();
+        string result = AddBinDigits(hex);
+        Console.WriteLine(result);
     }
-    static void ConvertHexToBinary(string input)
+    static string AddBinDigits(string hex)
     {
-        int len = input.Length;
-        int binary = 0;
-        int count = 0;
-        for (int i = len - 1; i >= 0; i--, count++)
+        string res = string.Empty;
+        for (int i = 0; i < hex.Length; i++)
         {
-            switch (input[i])
+            switch (hex.Substring(i, 1))
             {
-                case 'A': binary = binary | (10 << 4 * count); break;
-                case 'B': binary = binary | (11 << 4 * count); break;
-                case 'C': binary = binary | (12 << 4 * count); break;
-                case 'D': binary = binary | (13 << 4 * count); break;
-                case 'E': binary = binary | (14 << 4 * count); break;
-                case 'F': binary = binary | (15 << 4 * count); break;
-                default: binary = binary | ((input[i] - 48) << 4 * count); break;
+                case "0": res += "0000 "; break;
+                case "1": res += "0001 "; break;
+                case "2": res += "0010 "; break;
+                case "3": res += "0011 "; break;
+                case "4": res += "0100 "; break;
+                case "5": res += "0101 "; break;
+                case "6": res += "0110 "; break;
+                case "7": res += "0111 "; break;
+                case "8": res += "1000 "; break;
+                case "9": res += "1001 "; break;
+                case "A": res += "1010 "; break;
+                case "B": res += "1011 "; break;
+                case "C": res += "1100 "; break;
+                case "D": res += "1101 "; break;
+                case "E": res += "1110 "; break;
+                case "F": res += "1111 "; break;
+                default: res += ""; break;
             }
         }
-        Console.WriteLine(Convert.ToString(binary, 2).PadLeft(32, '0'));
+        return res;
     }
 }
