@@ -1,22 +1,21 @@
 using System;
 
-class Program
+//Convert from Any Base To Any, no limits
+
+class AllBases
 {
-    // GetChar(15) -> 'F'
     static char GetChar(int i)
     {
         if (i >= 10) return (char)('A' + i - 10);
         else return (char)('0' + i);
     }
 
-    // GetNumber("587", 2) -> 7
     static int GetNumber(string s, int i)
     {
         if (s[i] >= 'A') return s[i] - 'A' + 10;
         else return s[i] - '0';
     }
 
-    // Exercise 1
     static string Base10ToBaseX(int d, int x)
     {
         string h = String.Empty;
@@ -26,7 +25,6 @@ class Program
         return h;
     }
 
-    // Exercise 2
     static int BaseXToBase10(string h, int x)
     {
         int d = 0;
@@ -44,6 +42,12 @@ class Program
 
     static void Main()
     {
-        Console.WriteLine(BaseXToBaseY("2273417", 8, 36));
+        Console.Write("Enter number: ");
+        string number = (Console.ReadLine()).ToUpper();
+        Console.Write("Enter base X from: ");
+        int baseX = int.Parse(Console.ReadLine());
+        Console.Write("Enter base Y to: ");
+        int baseY = int.Parse(Console.ReadLine());
+        Console.WriteLine(BaseXToBaseY(number, baseX, baseY));
     }
 }
