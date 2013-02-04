@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+//Binary To Decimal
+
+class BinToDec
+{
+    static void Main()
+    {
+        string binary = Console.ReadLine();
+
+        int decimalNum = 0;
+        int len = binary.Length;
+
+        for (int i = len - 1; i >= 0; i--)
+        {
+            if (binary[i] == '1')
+            {
+                decimalNum = decimalNum + (int)Math.Pow(2, len - 1 - i);
+            }
+        }
+        Console.WriteLine("{0}(2-base) = {1}(10-base)", binary, decimalNum);
+    }
+}
